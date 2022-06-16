@@ -42,3 +42,12 @@ footer {
     bottom: 0;
     margin-top: 130px;
 }
+#color-picker {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+#color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
