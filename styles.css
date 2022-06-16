@@ -22,7 +22,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 #content-col-left #content-col-right{
     display: flex;
@@ -34,6 +33,8 @@ body {
     min-height: 500px;
     border: solid black 2px;
 }
+/* #grid-container > div {} children divs in the grid proabably
+need to use JS  */ 
 footer {
     text-align: center;
     display: flex;
