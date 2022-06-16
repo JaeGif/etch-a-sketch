@@ -32,6 +32,7 @@ body {
     min-width: 500px;
     min-height: 500px;
     border: solid black 2px;
+    display: grid;
 }
 /* #grid-container > div {} children divs in the grid proabably
 need to use JS  */ 
