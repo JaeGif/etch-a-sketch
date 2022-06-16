@@ -1,0 +1,37 @@
+/* working top down following the HTML to keep doc readable*/
+body {
+    background-color: whitesmoke;
+    text-align: center;
+}
+.head-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#head-opts-container {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+
+
+
+
+
+.content-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+#content-col-left #content-col-right{
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+}
+#grid-container {
+    min-width: 500px;
+    min-height: 500px;
+    border: solid black 2px;
+}
