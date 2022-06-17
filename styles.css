@@ -54,5 +54,5 @@ footer {
     border-radius: 50%;
 }
 .grid-children:hover {
-    border: solid red 2px;
+    border: solid #333333 thin;
 }
