@@ -53,3 +53,6 @@ footer {
     border: none;
     border-radius: 50%;
 }
+.grid-children:hover {
+    border: solid red 2px;
+}

@@ -13,7 +13,6 @@ const aspectSliderSource = document.querySelector('#slider')
 let colorChoice = document.getElementById("color-picker");
 
 
-// make a 16x16 grid first
 // biggest 8x8, smallest ratio 128x128
 
 /* function changeColor(e) {
@@ -24,24 +23,23 @@ function setGrid(size) {
     gridSource.style.gridTemplateRows = `repeat(${size}, 1fr)`
     for (let i=0; i < (size*size); i++) {
         const gridDivs = document.createElement('div')
-        gridDivs.addEventListener('mouseover', function (e) {
-            console.log(e.target.id)
-           // changeColor(e.target.id)
-        })
+        gridDivs.addEventListener('mousedown', changeColor)
+
+        gridDivs.className = 'grid-children'
         //gridDivs.addEventListener('mousedown', /* chage color fn */)
         gridSource.appendChild(gridDivs)
         //gridDivs.addEventListener('mouseover', changeColor())
 
     }
 }
-
+function changeColor(e) {
+    e.target.style.backgroundColor = '#FF0000'
+    console.log(e.target.className)
+}
 function sizeChange() {
     // change size of grid
 }
 
 
 setGrid(8)
-gridDivs.addEventListener('mouseover', function (e) {
-    console.log(e.target.id)
-   // changeColor(e.target.id)
-})
+
