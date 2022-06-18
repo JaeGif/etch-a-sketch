@@ -1,8 +1,6 @@
-const DEFAULT_COLOR = '#000000'
 const DEFAULT_MODE = 'color'
 const DEFAULT_SIZE = 8
 
-let currentColor = DEFAULT_COLOR
 let currentMode = DEFAULT_MODE
 let currentSize = DEFAULT_SIZE
 
@@ -10,8 +8,11 @@ let currentSize = DEFAULT_SIZE
 const gridSource = document.querySelector('#grid-container')
 const clearButtonSource = document.querySelector('#clear')
 const aspectSliderSource = document.querySelector('#slider')
-let colorChoice = document.getElementById("color-picker");
+let colorChoice = document.getElementById("color-picker")
+aspectSliderSource.addEventListener('mouseup', changeSize)
+console.log(aspectSliderSource.value)
 
+// returns the value of color picker console.log(colorChoice.value)
 
 // biggest 8x8, smallest ratio 128x128
 
@@ -32,14 +33,18 @@ function setGrid(size) {
 
     }
 }
+
 function changeColor(e) {
-    e.target.style.backgroundColor = '#FF0000'
-    console.log(e.target.className)
+    e.target.style.backgroundColor = colorChoice.value
 }
-function sizeChange() {
-    // change size of grid
+function changeSize() {
+    let currentSize = aspectSliderSource.value
+    setGrid(currentSize)
+
 }
 
+function loadDEFAULTS() {
+    setGrid(currentSize)
+}
 
-setGrid(8)
-
+loadDEFAULTS()
