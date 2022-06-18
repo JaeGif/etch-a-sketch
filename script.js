@@ -8,17 +8,8 @@ let currentSize = DEFAULT_SIZE
 const gridSource = document.querySelector('#grid-container')
 const clearButtonSource = document.querySelector('#clear')
 const aspectSliderSource = document.querySelector('#slider')
-let colorChoice = document.getElementById("color-picker")
-aspectSliderSource.addEventListener('mouseup', changeSize)
-console.log(aspectSliderSource.value)
+aspectSliderSource.addEventListener('input', changeSize)    // listens on input slide, dynamically changing
 
-// returns the value of color picker console.log(colorChoice.value)
-
-// biggest 8x8, smallest ratio 128x128
-
-/* function changeColor(e) {
-    e.style.backgroundColor('black')
-} */
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     gridSource.style.gridTemplateRows = `repeat(${size}, 1fr)`
@@ -35,16 +26,25 @@ function setGrid(size) {
 }
 
 function changeColor(e) {
+    let colorChoice = document.getElementById("color-picker")
     e.target.style.backgroundColor = colorChoice.value
 }
 function changeSize() {
-    let currentSize = aspectSliderSource.value
+    let currentSize = aspectSliderSource.value  //change size value based on slider
+    clearGrid()     // clear grid for performance
     setGrid(currentSize)
 
 }
 
-function loadDEFAULTS() {
+function loadDEFAULTS() {  // initializes the minimum page requirements
     setGrid(currentSize)
+    
+}
+
+function clearGrid() {      // removes element children
+    while (gridSource.lastChild) {
+        gridSource.removeChild(gridSource.lastChild);
+    }
 }
 
 loadDEFAULTS()
