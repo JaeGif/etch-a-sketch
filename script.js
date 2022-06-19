@@ -22,27 +22,26 @@ clearButtonSource.addEventListener('click', () => {     // clear on click
     clearGrid()
     loadCurrent()
     })
-resetButtonSource.addEventListener('click', () => {
+resetButtonSource.addEventListener('click', () => {     // reset to defaults
     clearGrid()
     loadDEFAULTS()
     })
 
-penButtonSource.addEventListener('click', () => {
+penButtonSource.addEventListener('click', () => {       // pen mode button
     currentMode = 'pen'
     clearGrid()
     loadCurrent()
 })
-rainbowButtonSource.addEventListener('click', () => {
+rainbowButtonSource.addEventListener('click', () => {       // rainbow mode button
     currentMode = 'rainbow'
     clearGrid()
     loadCurrent()
 })
-preciseButtonSource.addEventListener('click', () => {
+preciseButtonSource.addEventListener('click', () => {       // precision mode button
     currentMode = 'precise'
     clearGrid()
     loadCurrent()
 })
-//gridSource.addEventListener('mousedown', () => {mouseDownCheck = true})
 
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`       // set grid size (inline CSS)
@@ -50,12 +49,12 @@ function setGrid(size) {
     for (let i=0; i < (size*size); i++) {       // generate the grid elements based on size selection
         const gridDivs = document.createElement('div')    
         gridDivs.className = 'grid-children'        // assign class for CSS on-hover effects
-        changeMode(gridDivs)     // add an on click listener to change colors
+        checkMode(gridDivs)     // add an on click listener to change colors
         gridSource.appendChild(gridDivs)
 
     }
 }
-function changeMode(gridE) {
+function checkMode(gridE) {
     if (currentMode == 'precise') {
         preciseMode(gridE);
     } else if (currentMode == 'pen') {
@@ -113,14 +112,13 @@ function loadCurrent() {
     aspectSliderSource.value = currentSize
 }
 function loadDEFAULTS() {  // initializes the minimum page requirements
-    currentSize = DEFAULT_SIZE
+    currentSize = DEFAULT_SIZE      // changes the variables to defaults
     currentChoice = DEFAULT_COLOR
     currentMode = DEFAULT_MODE
-    setGrid(currentSize)
     aspectSliderSource.value = 8
+    setGrid(currentSize)
 }
-
-function clearGrid() {      // removes element children, resets grid with current size selection
+function clearGrid() {      // kills element children, resets grid with current size selection
     while (gridSource.lastChild) {
         gridSource.removeChild(gridSource.lastChild);
     }
