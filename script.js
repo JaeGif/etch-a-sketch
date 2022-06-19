@@ -4,11 +4,13 @@ const DEFAULT_SIZE = 8
 let currentMode = DEFAULT_MODE
 let currentSize = DEFAULT_SIZE
 
-
 const gridSource = document.querySelector('#grid-container')
 const clearButtonSource = document.querySelector('#clear')
 const aspectSliderSource = document.querySelector('#slider')
 aspectSliderSource.addEventListener('input', changeSize)    // listens on input slide, dynamically changing
+//var mouseDownCheck = false
+
+//gridSource.addEventListener('mousedown', () => {mouseDownCheck = true})
 
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`
@@ -16,7 +18,7 @@ function setGrid(size) {
     for (let i=0; i < (size*size); i++) {
         const gridDivs = document.createElement('div')
         gridDivs.addEventListener('mousedown', changeColor)
-
+        
         gridDivs.className = 'grid-children'
         //gridDivs.addEventListener('mousedown', /* chage color fn */)
         gridSource.appendChild(gridDivs)
@@ -28,6 +30,7 @@ function setGrid(size) {
 function changeColor(e) {
     let colorChoice = document.getElementById("color-picker")
     e.target.style.backgroundColor = colorChoice.value
+
 }
 function changeSize() {
     let currentSize = aspectSliderSource.value  //change size value based on slider
