@@ -16,8 +16,14 @@ const penButtonSource = document.querySelector('#pen-color')
 const rainbowButtonSource = document.querySelector('#rainbow-color')
 const charcoalButtonSource = document.querySelector('#charcoal-mode')
 const preciseButtonSource = document.querySelector('#click-color')
+const gridSizeUpdater = document.querySelector('p')
 // permanent listeners
-aspectSliderSource.addEventListener('input', changeSize)    // listens for slider movement
+aspectSliderSource.addEventListener('input', () => {
+    let value = aspectSliderSource.value
+    changeSize()
+    gridSizeUpdater.textContent = ''
+    gridSizeUpdater.textContent = `Grid Size: ${value} x ${value}`
+})    // listens for slider movement
 clearButtonSource.addEventListener('click', () => {     // clear on click
     clearGrid()
     loadCurrent()

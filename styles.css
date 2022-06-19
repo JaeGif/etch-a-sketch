@@ -15,19 +15,23 @@ body {
 }
 #head-opts-container {
     display: flex;
-    justify-content: space-between;
-    width: 500px;
+    justify-content: center;
+    margin-left: 100px;
+    margin-bottom: 5px;
+    gap: 5px;
 }
 .content-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 20px;
     align-items: center;
 }
 #content-col-left {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
-    max-width: 90px;
+    width: 90px;
+    gap: 5px;
 }
 #grid-container {
     min-width: 500px;
@@ -44,8 +48,8 @@ footer {
     margin-top: 130px;
 }
 #color-picker {
-    height: 80px;
-    width: 80px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
 }
 #color-picker::-webkit-color-swatch {
@@ -55,8 +59,8 @@ footer {
 button {
     background-color: #333333;
     color: whitesmoke;
-    height: 40px;
-    width: 80px;
+    height: 50px;
+    width: 100px;
     border-radius: 8px;
 }
 .grid-children:hover {
@@ -70,4 +74,14 @@ button {
 #clear {
     background-color: grey;
     color: #333333;
+}
+#slider {
+    width: 100px;
+}
+#grid-size {
+    border: solid #333333 thin;
+    background-color: whitesmoke;
+    margin-top: -3px;
+    padding: 3px;
+    border-radius: 8px;
 }
