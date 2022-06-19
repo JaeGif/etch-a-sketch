@@ -23,10 +23,11 @@ body {
     justify-content: space-around;
     align-items: center;
 }
-#content-col-left #content-col-right{
+#content-col-left {
     display: flex;
     flex-direction: column;
     min-width: fit-content;
+    max-width: 90px;
 }
 #grid-container {
     min-width: 500px;
@@ -34,8 +35,6 @@ body {
     border: solid black 2px;
     display: grid;
 }
-/* #grid-container > div {} children divs in the grid proabably
-need to use JS  */ 
 footer {
     text-align: center;
     display: flex;
@@ -45,14 +44,30 @@ footer {
     margin-top: 130px;
 }
 #color-picker {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
 }
 #color-picker::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
 }
+button {
+    background-color: #333333;
+    color: whitesmoke;
+    height: 40px;
+    width: 80px;
+    border-radius: 8px;
+}
 .grid-children:hover {
-    border: solid #333333 thin;
+    background-color:hsl(0, 20%, 90%);
+    border: solid black thin;
+}
+#reset {
+    background-color: silver;
+    color: #333333;
+}
+#clear {
+    background-color: grey;
+    color: #333333;
 }

@@ -43,6 +43,7 @@ preciseButtonSource.addEventListener('click', () => {       // precision mode bu
     loadCurrent()
 })
 
+// essential functions
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`       // set grid size (inline CSS)
     gridSource.style.gridTemplateRows = `repeat(${size}, 1fr)`     
@@ -98,16 +99,14 @@ function changeColor(e) {
         color = `rgb(${rR}, ${rG}, ${rB})`
     }
     e.target.style.backgroundColor = color
-
 }
 function changeSize() {
     // change size via slider
     currentSize = aspectSliderSource.value 
-    clearGrid()     // clear grid for performance
+    clearGrid()             // clear grid for performance
     setGrid(currentSize)
-
 }
-function loadCurrent() {
+function loadCurrent() {        // reload grid with current settings
     setGrid(currentSize)
     aspectSliderSource.value = currentSize
 }
@@ -123,5 +122,5 @@ function clearGrid() {      // kills element children, resets grid with current 
         gridSource.removeChild(gridSource.lastChild);
     }
 }
-
+// on page load initialize default grid
 loadDEFAULTS()
