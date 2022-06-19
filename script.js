@@ -10,14 +10,17 @@ let currentSize = DEFAULT_SIZE
 const gridSource = document.querySelector('#grid-container')
 const clearButtonSource = document.querySelector('#clear')
 const aspectSliderSource = document.querySelector('#slider')
-
+const resetButtonSource = document.querySelector('#reset')
 // permanent listeners
 aspectSliderSource.addEventListener('input', changeSize)    // listens for slider movement
 clearButtonSource.addEventListener('click', () => {     // clear on click
     clearGrid()
+    loadCurrent()
+    })
+resetButtonSource.addEventListener('click', () => {
+    clearGrid()
     loadDEFAULTS()
     })
-
 
 //gridSource.addEventListener('mousedown', () => {mouseDownCheck = true})
 
@@ -32,7 +35,6 @@ function setGrid(size) {
 
     }
 }
-
 function changeColor(e) {
     // select color using color swatch
     let colorChoice = document.getElementById("color-picker")
@@ -46,9 +48,13 @@ function changeSize() {
     setGrid(currentSize)
 
 }
-
+function loadCurrent() {
+    setGrid(currentSize)
+    aspectSliderSource.value = currentSize
+}
 function loadDEFAULTS() {  // initializes the minimum page requirements
-    setGrid(DEFAULT_SIZE)
+    currentSize = DEFAULT_SIZE
+    setGrid(currentSize)
     aspectSliderSource.value = 8
 }
 
