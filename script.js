@@ -12,6 +12,10 @@ const gridSource = document.querySelector('#grid-container')
 const clearButtonSource = document.querySelector('#clear')
 const aspectSliderSource = document.querySelector('#slider')
 const resetButtonSource = document.querySelector('#reset')
+const penButtonSource = document.querySelector('#pen-color')
+const rainbowButtonSource = document.querySelector('#rainbow-color')
+const charcoalButtonSource = document.querySelector('#charcoal-mode')
+const preciseButtonSource = document.querySelector('#click-color')
 // permanent listeners
 aspectSliderSource.addEventListener('input', changeSize)    // listens for slider movement
 clearButtonSource.addEventListener('click', () => {     // clear on click
@@ -23,6 +27,21 @@ resetButtonSource.addEventListener('click', () => {
     loadDEFAULTS()
     })
 
+penButtonSource.addEventListener('click', () => {
+    currentMode = 'pen'
+    clearGrid()
+    loadCurrent()
+})
+rainbowButtonSource.addEventListener('click', () => {
+    currentMode = 'rainbow'
+    clearGrid()
+    loadCurrent()
+})
+preciseButtonSource.addEventListener('click', () => {
+    currentMode = 'precise'
+    clearGrid()
+    loadCurrent()
+})
 //gridSource.addEventListener('mousedown', () => {mouseDownCheck = true})
 
 function setGrid(size) {
@@ -43,33 +62,43 @@ function changeMode(gridE) {
         penMode(gridE)
     } else if (currentMode == 'rainbow') {
         rainbowMode(gridE)
-    } else if (currentMode == 'charcoal') {
-        charcoalMode(gridE)
-    } else {
+    } /* else if (currentMode == 'charcoal') {
+        charcoalMode(gridE, eleIndex)
+    } */ else {
         alert('Something has gone horribly wrong, please reload the page')
     }
 }
 function preciseMode(preciseElements) {
     preciseElements.addEventListener('click', changeColor)
 }
-function passOverListeners() {
-    // event listeners assigned if the element is passed over while the mouse is held down
-    let clickCheck = false
-}
 function penMode(penElements) {
     // change color on mouse down until mouse down false
+    penElements.addEventListener('mouseover', changeColor)
 }
 function rainbowMode(rainbowElements) {
     // pen mode, change color randomly
+    rainbowElements.addEventListener('mouseover', changeColor)
 }
-function charcoalMode(charcoalElements) {
+/* function charcoalMode(charcoalElements, i) {
     // pen mode make color a 10% darker on subsequent passes over an element
-
-}
+    let clicks = 0
+    let gridArray = []
+    charcoalElements.addEventListener('click', () => {
+        let lightness = 26 + (clicks * (1/10))
+        colorChoice = `hsl(204, 19%, ${lightness}%)`
+    })
+} */
 function changeColor(e) {
     // select color using color swatch
     colorChoice = document.getElementById("color-picker")
-    e.target.style.backgroundColor = colorChoice.value
+    let color = colorChoice.value
+    if (currentMode == 'rainbow') {
+        let rR = Math.floor(Math.random() * 255)
+        let rG = Math.floor(Math.random() * 255)
+        let rB = Math.floor(Math.random() * 255)
+        color = `rgb(${rR}, ${rG}, ${rB})`
+    }
+    e.target.style.backgroundColor = color
 
 }
 function changeSize() {
