@@ -24,7 +24,7 @@ aspectSliderSource.addEventListener('input', () => {
     changeSize()
     gridSizeUpdater.textContent = ''
     gridSizeUpdater.textContent = `Grid Size: ${value} x ${value}`
-})    // listens for slider movement
+})
 clearButtonSource.addEventListener('click', () => {     // clear on click
     clearGrid()
     loadCurrent()
@@ -48,7 +48,7 @@ preciseButtonSource.addEventListener('click', () => {       // precision mode bu
     clearGrid()
     loadCurrent()
 })
-charcoalButtonSource.addEventListener('click', () => {
+charcoalButtonSource.addEventListener('click', () => {      // charcoal mode button
     currentMode = 'charcoal'
     clearGrid()
     loadCurrent()
@@ -89,10 +89,10 @@ function changeColor(e) {
         color = `rgb(${rR}, ${rG}, ${rB})`
     } else if (currentMode == 'charcoal') {
         var arrayDarkness = e.target.id.split(',')
-        if (Number(arrayDarkness[1]) < 9) {            
+        if (Number(arrayDarkness[1]) < 14) {            
             arrayDarkness[1] = Number(arrayDarkness[1]) + 1
             e.target.id = arrayDarkness
-            let darkness = 26 - (26 * (arrayDarkness[1]/10))
+            let darkness = 26 - (26 * (arrayDarkness[1]/15))
             color = `hsl(204, 19%, ${darkness}%)`
         } else {
             color = 'hsl(204, 19%, 0%)'

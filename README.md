@@ -5,7 +5,7 @@ This project waas an assignment from the Odin Project. I used JS DOM manipulatio
     Alternating colors is supported.
     2. Pen Flow: Select any color and the grid elements will change color following your mouse.
     3. Rainbow Flow: Similar to Pen Flow, except that the rgb values of the colors are randomized.
-    4. Precision Charcoal: Use the charcoal color on individual passes over a grid element. 
+    4. Precision Charcoal: Use the charcoal color 'hsl(204, 19%, 26%)' on individual passes over a grid element. 
     When the element is passed over again, increment the darkness of the element to be slightly darker.
     5. Color Picking: In any mode (other than charcoal) you can select a new color using the color 
     picker element. The element is from mozilla webkit and also includes a color picker lens so you can 
