@@ -1,7 +1,5 @@
 # etch-a-sketch
-===========================================================================================================================================
 This project waas an assignment from the Odin Project. I used JS DOM manipulation to generate the grids and color schemes, along with simple event listeners and logic to swap modes/colors/reset the grid. I made the minimum size 8x8 as I'm a huge fan of bit art. the maximum size is 100x100, as this was the largest size on my machine that didn't noticeably lag. I tested larger sizes but scrapped them as the apps performance takes a heavy hit, exponentially consuming resources as the size of the grid increases. 1000x1000 was a cool grid though, if you have the hardware for it, change the max slider value in the HTML and give it a try! 
--------------------------------------------------------------------------------------------------------------------------------------------
 # FEATURES
     1. Precision Sketching: Select a grid size and draw single square by square on the grid. Alternating colors is supported.
     2. Pen Flow: Select any color and the grid elements will change color following your mouse.
