@@ -49,9 +49,6 @@ preciseButtonSource.addEventListener('click', () => {       // precision mode bu
     clearGrid()
     loadCurrent()
 })
-eraseButtonSource.addEventListener('click', () => {
-    currentMode = 'erase'
-})
 // essential functions
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`       // set grid size (inline CSS)
@@ -61,7 +58,6 @@ function setGrid(size) {
         gridDivs.className = 'grid-children'        // assign class for CSS on-hover effects
         checkMode(gridDivs)     // add an on click listener to change colors
         gridSource.appendChild(gridDivs)
-
     }
 }
 function checkMode(gridE) {
@@ -106,10 +102,7 @@ function changeColor(e) {
         let rG = Math.floor(Math.random() * 255)
         let rB = Math.floor(Math.random() * 255)
         color = `rgb(${rR}, ${rG}, ${rB})`
-    } else if (currentMode == 'erase') {
-        colorChoice.innerHTML.value = '#000000'
-        color = colorChoice.value
-    }
+    } 
     e.target.style.backgroundColor = color
 }
 function changeSize() {
