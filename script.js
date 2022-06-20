@@ -94,7 +94,6 @@ function changeColor(e) {
             e.target.id = arrayDarkness
             let darkness = 26 - (26 * (arrayDarkness[1]/10))
             color = `hsl(204, 19%, ${darkness}%)`
-            console.log(color)
         } else {
             color = 'hsl(204, 19%, 0%)'
         }
