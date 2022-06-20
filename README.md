@@ -13,8 +13,8 @@ This project waas an assignment from the Odin Project. I used JS DOM manipulatio
     6. Clear: Clears the grid, saves the current mode and grid size. 
     7. Reset: Clears the grid, resets the settings to DEFAULTs.
 
-Notes: When switching between grid sizes the grid is cleared in order to preserve system resources.
-Removed features:
--------------------------------------------------------------------------------------------------------------------------------------------
+# Notes: 
+When switching between grid sizes the grid is cleared in order to preserve system resources.
+# Removed features:
 
 Erase: I removed it because I felt that the functionality was redundant as you can just pick a new color and overwrite a previous grid element at any time.
