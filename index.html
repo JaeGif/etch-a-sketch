@@ -12,33 +12,38 @@
 </head>
     <body>
         <h1>Etch-a-Sketch</h1>
-
-        <div class="head-container">
-            <div class="padding" id="head-left-pad"></div>
-            <div id="head-opts-container">
-                <div class="head-opts">
-                    <button id="clear">Clear</button>
+        
+            <div class="head-container">
+                <div class="padding" id="head-left-pad"></div>
+                <div id="head-opts-container">
+                    <div class="head-opts">
+                        <button id="clear">Clear</button>
+                    </div>
+                    <div class="head-opts">
+                        <button id="reset">Reset</button>
+                    </div>
                 </div>
-                <div class="head-opts">
-                    <button id="reset">Reset</button>
+                <div class="padding" id="head-right-pad"></div>
+            </div>
+        <div class="body-container">
+            <div class="content-container">
+                <div class="content" id="content-col-left">
+                    <input id="color-picker" type="color">
+                    <button id="click-color">Precise Color</button>
+                    <button id="pen-color">Pen Color</button>
+                    <button id="rainbow-color">Rainbow</button>
+                    <button id="charcoal-mode">Charcoal</button>
+                    <button id="erase-button">Erase</button>
+                    <input id="slider" type="range" min="8" max="100" value="8">
+                </div>
+                <div class="content" id="grid-container">
+                </div>
+                <div class="content" id="content-col-right">
                 </div>
             </div>
-            <div class="padding" id="head-right-pad"></div>
         </div>
-        <div class="content-container">
-            <div class="content" id="content-col-left">
-                <input id="color-picker" type="color">
-                <button id="click-color">Precise Color</button>
-                <button id="pen-color">Pen Color</button>
-                <button id="rainbow-color">Rainbow</button>
-                <button id="charcoal-mode">Charcoal</button>
-                <input id="slider" type="range" min="8" max="64" value="8">
-                <p id="grid-size">Grid Size: 8x8</p>
-            </div>
-            <div class="content" id="grid-container">
-            </div>
-            <div class="content" id="content-col-right">
-            </div>
+        <div class="bottom-container">
+            <p id="grid-size">Grid Size: 8x8</p>
         </div>
         <footer class="foot-container">
             <div class="footer" id="footer-about">

@@ -1,29 +1,14 @@
 # etch-a-sketch
 
-Assignment details
+This project waas an assignment from the Odin Project. I used JS DOM manipulation to generate the grids and color schemes, along with simple event listeners and logic to swap modes/colors/reset the grid. I made the minimum size 8x8 as I'm a huge fan of bit art. the maximum size is 100x100, as this was the largest size on my machine that didn't noticeably lag. I tested larger sizes but scrapped them as the apps performance takes a heavy hit, exponentially consuming resources as the size of the grid increases. 1000x1000 was a cool grid though, if you have the hardware for it, change the max slider value in the HTML and give it a try! 
 
-Create a webpage with a 16x16 grid of square divs.
-Create the divs using JavaScript. Don’t try making them by hand with copy and pasting in your HTML file!
-It’s best to put your grid squares inside another “container” div (which can go directly in your HTML).
-There are several different ways to make the divs appear as a grid (versus just one on each line). Feel free to use any or play with each of them:
-float/clear
-inline-block
-flexbox
-CSS Grid
-Be careful with borders and margins, as they can adjust the size of the squares!
-“OMG, why isn’t my grid being created???”
-Did you link your CSS stylesheet?
-Open your browser’s developer tools.
-Check if there are any errors in the JavaScript console.
-Check your “elements” pane to see if the elements have actually shown up but are somehow hidden.
-Go willy-nilly and add console.log statements in your JavaScript to see if it’s actually being loaded.
-Set up a “hover” effect so that the grid divs change color when your mouse passes over them, leaving a (pixelated) trail through your grid like a pen would.
-Hint: “Hovering” is what happens when your mouse enters a div and ends when your mouse leaves it. You can set up event listeners for either of those events as a starting point.
-There are multiple ways to change the color of the divs, including:
-adding a new class to the div.
-changing the div’s background color using JavaScript.
-Add a button to the top of the screen that will send the user a popup asking for the number of squares per side for the new grid. Once entered, the existing grid should be removed and a new grid should be generated in the same total space as before (e.g. 960px wide) so that you’ve got a new sketch pad. Tip: Set the limit for the user input to a maximum of 100. A larger number of squares results in more computer resources being used, potentially causing delays, freezing, or crashing that we want to prevent.
-Research button tags in HTML and how you can make a JavaScript function run when one is clicked.
-Also check out prompts.
-You should be able to enter 64 and have a brand new 64x64 grid pop up without changing the total amount of pixels used.
-(Optional): Instead of just changing the color of a square from black to white (for example), have each pass through with the mouse change it to a completely random RGB value. Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
+# FEATURES
+1. Precision Sketching: Select a grid size and draw single square by square on the grid. Alternating colors is supported.
+2. Pen Flow: Select any color and the grid elements will change color following your mouse.
+3. Rainbow Flow: Similar to Pen Flow, except that the rgb values of the colors are randomized.
+4. Precision Charcoal: WIP use the charcoal color on individual passes over a grid element. When the element is passed over again, incremenet the darkness of the element to be slightly darker.
+5. Color Picking: In any mode (other than charcoal) you can select a new color using the color picker element. The element is from mozilla webkit and also includes a color picker lens so you can sample colors from elsewhere on your screen and match it for drawing. 
+6. Clear: Clears the grid, saves the current mode and grid size. 
+7. Reset: Clears the grid, resets the settings to DEFAULTs.
+
+Notes: When switching between grid sizes the grid is cleared in order to preserve system resources.

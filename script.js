@@ -16,7 +16,9 @@ const penButtonSource = document.querySelector('#pen-color')
 const rainbowButtonSource = document.querySelector('#rainbow-color')
 const charcoalButtonSource = document.querySelector('#charcoal-mode')
 const preciseButtonSource = document.querySelector('#click-color')
+const eraseButtonSource = document.querySelector('#erase-button')
 const gridSizeUpdater = document.querySelector('p')
+
 // permanent listeners
 aspectSliderSource.addEventListener('input', () => {
     let value = aspectSliderSource.value
@@ -27,12 +29,11 @@ aspectSliderSource.addEventListener('input', () => {
 clearButtonSource.addEventListener('click', () => {     // clear on click
     clearGrid()
     loadCurrent()
-    })
+})
 resetButtonSource.addEventListener('click', () => {     // reset to defaults
     clearGrid()
     loadDEFAULTS()
-    })
-
+})
 penButtonSource.addEventListener('click', () => {       // pen mode button
     currentMode = 'pen'
     clearGrid()
@@ -48,7 +49,9 @@ preciseButtonSource.addEventListener('click', () => {       // precision mode bu
     clearGrid()
     loadCurrent()
 })
-
+eraseButtonSource.addEventListener('click', () => {
+    currentMode = 'erase'
+})
 // essential functions
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`       // set grid size (inline CSS)
@@ -103,6 +106,9 @@ function changeColor(e) {
         let rG = Math.floor(Math.random() * 255)
         let rB = Math.floor(Math.random() * 255)
         color = `rgb(${rR}, ${rG}, ${rB})`
+    } else if (currentMode == 'erase') {
+        colorChoice.innerHTML.value = '#000000'
+        color = colorChoice.value
     }
     e.target.style.backgroundColor = color
 }
