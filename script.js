@@ -62,28 +62,18 @@ function setGrid(size) {
 }
 function checkMode(gridE) {
     if (currentMode == 'precise') {
-        preciseMode(gridE);
+        gridE.addEventListener('click', changeColor);
     } else if (currentMode == 'pen') {
-        penMode(gridE)
+        gridE.addEventListener('mouseover', changeColor)
     } else if (currentMode == 'rainbow') {
-        rainbowMode(gridE)
+        gridE.addEventListener('mouseover', changeColor)
     } /* else if (currentMode == 'charcoal') {
         charcoalMode(gridE, eleIndex)
     } */ else {
         alert('Something has gone horribly wrong, please reload the page')
     }
 }
-function preciseMode(preciseElements) {
-    preciseElements.addEventListener('click', changeColor)
-}
-function penMode(penElements) {
-    // change color on mouse down until mouse down false
-    penElements.addEventListener('mouseover', changeColor)
-}
-function rainbowMode(rainbowElements) {
-    // pen mode, change color randomly
-    rainbowElements.addEventListener('mouseover', changeColor)
-}
+
 /* function charcoalMode(charcoalElements, i) {
     // pen mode make color a 10% darker on subsequent passes over an element
     let clicks = 0
