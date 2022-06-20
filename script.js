@@ -16,7 +16,6 @@ const penButtonSource = document.querySelector('#pen-color')
 const rainbowButtonSource = document.querySelector('#rainbow-color')
 const charcoalButtonSource = document.querySelector('#charcoal-mode')
 const preciseButtonSource = document.querySelector('#click-color')
-const eraseButtonSource = document.querySelector('#erase-button')
 const gridSizeUpdater = document.querySelector('p')
 
 // permanent listeners
@@ -49,6 +48,11 @@ preciseButtonSource.addEventListener('click', () => {       // precision mode bu
     clearGrid()
     loadCurrent()
 })
+charcoalButtonSource.addEventListener('click', () => {
+    currentMode = 'charcoal'
+    clearGrid()
+    loadCurrent()
+})
 // essential functions
 function setGrid(size) {
     gridSource.style.gridTemplateColumns = `repeat(${size}, 1fr)`       // set grid size (inline CSS)
@@ -56,33 +60,24 @@ function setGrid(size) {
     for (let i=0; i < (size*size); i++) {       // generate the grid elements based on size selection
         const gridDivs = document.createElement('div')    
         gridDivs.className = 'grid-children'        // assign class for CSS on-hover effects
-        checkMode(gridDivs)     // add an on click listener to change colors
+        checkMode(gridDivs, i)     // add an on click listener to change colors
         gridSource.appendChild(gridDivs)
     }
 }
-function checkMode(gridE) {
+function checkMode(gridE, i) {
     if (currentMode == 'precise') {
         gridE.addEventListener('click', changeColor);
     } else if (currentMode == 'pen') {
         gridE.addEventListener('mouseover', changeColor)
     } else if (currentMode == 'rainbow') {
         gridE.addEventListener('mouseover', changeColor)
-    } /* else if (currentMode == 'charcoal') {
-        charcoalMode(gridE, eleIndex)
-    } */ else {
+    } else if (currentMode == 'charcoal') {
+        gridE.id = [i, 0]
+        gridE.addEventListener('click', changeColor)
+    } else {
         alert('Something has gone horribly wrong, please reload the page')
     }
 }
-
-/* function charcoalMode(charcoalElements, i) {
-    // pen mode make color a 10% darker on subsequent passes over an element
-    let clicks = 0
-    let gridArray = []
-    charcoalElements.addEventListener('click', () => {
-        let lightness = 26 + (clicks * (1/10))
-        colorChoice = `hsl(204, 19%, ${lightness}%)`
-    })
-} */
 function changeColor(e) {
     // select color using color swatch
     colorChoice = document.getElementById("color-picker")
@@ -92,7 +87,18 @@ function changeColor(e) {
         let rG = Math.floor(Math.random() * 255)
         let rB = Math.floor(Math.random() * 255)
         color = `rgb(${rR}, ${rG}, ${rB})`
-    } 
+    } else if (currentMode == 'charcoal') {
+        var arrayDarkness = e.target.id.split(',')
+        if (Number(arrayDarkness[1]) < 9) {            
+            arrayDarkness[1] = Number(arrayDarkness[1]) + 1
+            e.target.id = arrayDarkness
+            let darkness = 26 - (26 * (arrayDarkness[1]/10))
+            color = `hsl(204, 19%, ${darkness}%)`
+            console.log(color)
+        } else {
+            color = 'hsl(204, 19%, 0%)'
+        }
+    }
     e.target.style.backgroundColor = color
 }
 function changeSize() {
